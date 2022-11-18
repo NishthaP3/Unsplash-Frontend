@@ -32,6 +32,7 @@ import { AuthInterceptor } from './interceptor/auth-interceptor';
 import { ToDoComponent } from './components/to-do/to-do.component';
 import { AddTaskDialogComponent } from './components/add-task-dialog/add-task-dialog.component';
 import { UnsplashComponent } from './components/unsplash/unsplash.component'
+import { AddPhotoDialogComponent } from './components/add-photo-dialog/add-photo-dialog.component'
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { UnsplashComponent } from './components/unsplash/unsplash.component'
     ToDoComponent,
     AddTaskDialogComponent,
     UnsplashComponent,
+    AddPhotoDialogComponent,
   ],
   imports: [
     BrowserModule,

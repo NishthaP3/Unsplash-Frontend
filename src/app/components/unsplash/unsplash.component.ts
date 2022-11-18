@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {AddPhotoDialogComponent} from "../add-photo-dialog/add-photo-dialog.component";
+import {MatDialog} from "@angular/material/dialog";
+import {TodoService} from "../../services/todo.service";
+import {UnsplashService} from "../../services/unsplash.service";
 export interface Tile {
   color: string;
   cols: number;
@@ -18,9 +22,16 @@ export class UnsplashComponent implements OnInit {
     {text: 'Three', cols: 2, rows: 2, color: 'lightpink'},
     {text: 'Four', cols: 2, rows: 2, color: '#DDBDF1'},
   ];
-  constructor() { }
+  constructor(public dialog: MatDialog, private unsplashService: UnsplashService) { }
 
   ngOnInit(): void {
   }
 
+  addPhoto() {
+    const dialogRef = this.dialog.open(AddPhotoDialogComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
 }
