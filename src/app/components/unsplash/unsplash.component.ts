@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { UnsplashService } from 'src/app/services/unsplash.service';
 export interface Tile {
+  src: string;
   color: string;
   cols: number;
   rows: number;
@@ -13,14 +15,20 @@ export interface Tile {
 })
 export class UnsplashComponent implements OnInit {
   tiles: Tile[] = [
-    {text: 'One', cols: 2, rows: 2, color: 'lightblue'},
-    {text: 'Two', cols: 2, rows: 2, color: 'lightgreen'},
-    {text: 'Three', cols: 2, rows: 2, color: 'lightpink'},
-    {text: 'Four', cols: 2, rows: 2, color: '#DDBDF1'},
+    // {text: 'One', cols: 2, rows: 2, color: 'lightblue'},
+    // {text: 'Two', cols: 2, rows: 2, color: 'lightgreen'},
+    // {text: 'Three', cols: 2, rows: 2, color: 'lightpink'},
+    // {text: 'Four', cols: 2, rows: 2, color: '#DDBDF1'},
   ];
-  constructor() { }
+  constructor(private unsplashService: UnsplashService) { }
 
   ngOnInit(): void {
+    this.unsplashService.getAllImages().subscribe(data=>{
+      for(const img of data){
+        const tile = {text: img._id, cols: 2, rows: 2, color: '#DDBDF1', src: img.url};
+        this.tiles.push(tile);
+      }
+    })
   }
 
 }
