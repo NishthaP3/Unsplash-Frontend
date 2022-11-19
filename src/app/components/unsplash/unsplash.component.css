@@ -1,3 +1,4 @@
 .grid-margin {
     margin: 100px;
+    overflow-y: scroll;
 }

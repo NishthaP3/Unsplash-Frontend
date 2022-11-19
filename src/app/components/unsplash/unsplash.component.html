@@ -10,7 +10,7 @@
         [colspan]="tile.cols"
         [rowspan]="tile.rows"
         [style.background]="tile.color">
-      <img src="https://picsum.photos/200/300/?random">
+      <img id={{tile.text}} src={{tile.src}}>
     </mat-grid-tile>
   </mat-grid-list>
   <mat-paginator *ngIf="100 > 0" [pageSizeOptions]="[5, 10, 20]"
