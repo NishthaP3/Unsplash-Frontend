@@ -4,7 +4,8 @@
     <mat-icon style="margin-bottom: 3%;margin-left: -5%;">add</mat-icon>Add Photo
   </button>
 </div>
-<mat-grid-list cols="4" rowHeight="100px" class="grid-margin">
+<div style="overflow: auto;height: 700px">
+<mat-grid-list cols="4" rowHeight="100px" class="grid-margin" >
     <mat-grid-tile
         *ngFor="let tile of tiles"
         [colspan]="tile.cols"
@@ -13,6 +14,7 @@
       <img id={{tile.text}} src={{tile.src}}>
     </mat-grid-tile>
   </mat-grid-list>
-  <mat-paginator *ngIf="100 > 0" [pageSizeOptions]="[5, 10, 20]"
-    showFirstLastButtons #paginator1 aria-label="Select page of periodic elements">
-</mat-paginator>
+</div>
+<!--  <mat-paginator *ngIf="100 > 0" [pageSizeOptions]="[5, 10, 20]"-->
+<!--    showFirstLastButtons #paginator1 aria-label="Select page of periodic elements">-->
+<!--</mat-paginator>-->
