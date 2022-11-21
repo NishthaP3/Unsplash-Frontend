@@ -8,16 +8,20 @@ import { Observable } from 'rxjs';
 export class UnsplashService {
   getdataUrl = 'https://gentle-reaches-97927.herokuapp.com/images';
   addPhotoUrl = 'https://gentle-reaches-97927.herokuapp.com/images/add';
-  deleteTaskUrl = 'https://gentle-reaches-97927.herokuapp.com/task/delete';
+  deletePhotoUrl = 'https://gentle-reaches-97927.herokuapp.com/images/delete';
   completeTaskUrl = 'https://gentle-reaches-97927.herokuapp.com/task/complete';
 
   constructor(private http: HttpClient) { }
 
-  getAllImages(): Observable<any> {
+  getAllImages(searchTerm = ''): Observable<any> {
     return this.http.get<any>(this.getdataUrl);
   }
 
   addPhoto(url: any): Observable<any> {
     return this.http.post(this.addPhotoUrl, url);
+  }
+
+  deletePhoto(id: any): Observable<any> {
+    return this.http.post(this.deletePhotoUrl, id);
   }
 }

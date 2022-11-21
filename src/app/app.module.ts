@@ -33,6 +33,7 @@ import { ToDoComponent } from './components/to-do/to-do.component';
 import { AddTaskDialogComponent } from './components/add-task-dialog/add-task-dialog.component';
 import { UnsplashComponent } from './components/unsplash/unsplash.component'
 import { AddPhotoDialogComponent } from './components/add-photo-dialog/add-photo-dialog.component'
+import {SearchFilterPipe} from "../search-filter.pipe";
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { AddPhotoDialogComponent } from './components/add-photo-dialog/add-photo
     AddTaskDialogComponent,
     UnsplashComponent,
     AddPhotoDialogComponent,
+    SearchFilterPipe
   ],
   imports: [
     BrowserModule,
