@@ -1,0 +1,57 @@
+.grid-margin {
+    margin: 100px;
+    overflow-y: scroll;
+}
+
+.unsplash-container {
+  position: relative;
+  width: 50%;
+}
+
+.unsplash-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.unsplash-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #000;
+}
+
+.unsplash-container:hover .unsplash-overlay {
+  opacity: 0.4;
+}
+
+.unsplash-text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.unsplash-delete {
+  border: none;
+  /*background: none;*/
+  text-transform: uppercase;
+  height: 100%;
+  font-weight: 700;
+  color: black;
+  letter-spacing: 1px;
+  font-size: inherit;
+  transition: all 0.3s;
+  outline: none;
+}
