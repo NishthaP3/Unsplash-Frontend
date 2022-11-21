@@ -1,0 +1,38 @@
+<div style="margin :1%;">
+  <div style="text-align: right;">
+    <mat-form-field appearance="fill">
+      <mat-label>Search photo by label</mat-label>
+      <input
+        matInput
+        [(ngModel)]="searchTerm"
+        placeholder="Search photo by label" (input)="filterPhotos(searchTerm)"/>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="addPhoto()">
+      <mat-icon style="margin-bottom: 3%;margin-left: -5%;">add</mat-icon>Add Photo
+    </button>
+  </div>
+
+  <div style="overflow: auto; height: 700px">
+    <mat-grid-list cols="6" rowHeight="100px" class="grid-margin" >
+      <mat-grid-tile
+        *ngFor="let tile of tiles"
+        [colspan]="tile.cols"
+        [rowspan]="tile.rows"
+        [style.background]="tile.color">
+        <div class="unsplash-container">
+          <img id={{tile.text}} src={{tile.src}} class="unsplash-image">
+          <div class="unsplash-overlay">
+            <div class="unsplash-text">
+              {{tile.label}}
+              <br>
+              <br>
+              <mat-icon (click)="deletePhoto(tile.text)">delete</mat-icon>
+            </div>
+
+          </div>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+</div>
