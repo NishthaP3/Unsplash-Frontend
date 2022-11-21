@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>Add Photo</h2>
+<h2 mat-dialog-title>{{modalName}} Photo</h2>
 <mat-dialog-content class="mat-typography">
   <div>
     <mat-form-field appearance="legacy">
@@ -20,5 +20,6 @@
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-raised-button mat-dialog-close>Cancel</button>
-  <button mat-raised-button [mat-dialog-close]="true" (click)="addPhoto()" cdkFocusInitial color="primary">Add</button>
+  <button *ngIf = "modalName == 'Add'" mat-raised-button [mat-dialog-close]="true" (click)="addPhoto()" cdkFocusInitial color="primary">Add</button>
+  <button *ngIf = "modalName == 'Update'" mat-raised-button [mat-dialog-close]="true" (click)="updatePhoto()" cdkFocusInitial color="primary">Update</button>
 </mat-dialog-actions>

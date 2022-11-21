@@ -10,6 +10,7 @@ export class UnsplashService {
   addPhotoUrl = 'https://gentle-reaches-97927.herokuapp.com/images/add';
   deletePhotoUrl = 'https://gentle-reaches-97927.herokuapp.com/images/delete';
   completeTaskUrl = 'https://gentle-reaches-97927.herokuapp.com/task/complete';
+  updateUrl = 'https://gentle-reaches-97927.herokuapp.com/images/update'
 
   constructor(private http: HttpClient) { }
 
@@ -23,5 +24,9 @@ export class UnsplashService {
 
   deletePhoto(id: any): Observable<any> {
     return this.http.post(this.deletePhotoUrl, id);
+  }
+
+  updatePhoto(tile: any): Observable<any> {
+    return this.http.post(this.updateUrl, tile);
   }
 }

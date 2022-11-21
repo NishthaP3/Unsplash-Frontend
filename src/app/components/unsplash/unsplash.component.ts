@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {AddPhotoDialogComponent} from "../add-photo-dialog/add-photo-dialog.component";
-import {MatDialog} from "@angular/material/dialog";
+import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import {TodoService} from "../../services/todo.service";
 import {UnsplashService} from "../../services/unsplash.service";
 import { animate, state, style, transition, trigger} from '@angular/animations';
@@ -51,7 +51,24 @@ export class UnsplashComponent implements OnInit {
   }
 
   addPhoto() {
-    const dialogRef = this.dialog.open(AddPhotoDialogComponent);
+
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = {
+      name: "Add"
+    }
+    const dialogRef = this.dialog.open(AddPhotoDialogComponent, dialogConfig);
+    dialogRef.afterClosed().subscribe(result => {
+      this.getAllPhotos();
+    });
+  }
+
+  updatePhoto(tile: Tile) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = {
+      name: "Update",
+      tile: tile
+    }
+    const dialogRef = this.dialog.open(AddPhotoDialogComponent, dialogConfig);
     dialogRef.afterClosed().subscribe(result => {
       this.getAllPhotos();
     });
